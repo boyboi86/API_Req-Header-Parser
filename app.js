@@ -9,18 +9,22 @@ app.listen(port, function(){
 
 app.get('/', function(req, res){
     
-// the ip address can be found via request header
+// the details can be found via request headers refer to README.md
 
    var ip = req.headers['x-forwarded-for'] || 
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
      req.connection.socket.remoteAddress; 
+     
+    var lang = req.headers["accept-language"].split(",")[0];
+    
+    var osv = req.headers["user-agent"].match(/\((.*?)\)/)[1];
 
 //respond with json
 
     res.json({
         ipaddress: ip,
-        language: req.headers["accept-language"].split(",")[0],
-        software: req.headers["user-agent"].match(/\((.*?)\)/)[1]
+        language: lang,
+        software: osv
     })
 });
