@@ -22,3 +22,5 @@ within the `app.get()` in the script, you can try `console.log(req.headers)` to 
 
 For more details, you may refer to <a href="https://nodejs.org/api/http.html#http_event_request">NodeJS Documentation on HTTP</a>
 
+To view it on Heroku, <a href="https://powerful-dusk-82053.herokuapp.com/">click here</a>
+
